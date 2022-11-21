@@ -1,0 +1,37 @@
+<div data-role="appbar" data-expand-point="md" style="position:relative;width:100vw;margin:0px;height:15vh;" >
+    {%load static%}
+    <div class="cell-3 offset-1">
+        <a href="{% url 'home' %}" class="brand no-hover" style="position:relative;left:-150px;top:-15px;" class="img-container">
+            <img src="{% static 'user/images/lovelyleaveslogo.png' %}" >
+        </a>
+    </div>
+    <ul class="app-bar-menu">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="d-menu" data-role="dropdown">
+                <li><a href="{% url 'store' %}">Store</a></li>
+                <li><a href="#">Office 365</a></li>
+                <li class="divider bg-lightGray"></li>
+                <li><a href="#">Skype</a></li>
+            </ul>
+        
+        </li>
+        <li><a href="#">Who are we?</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li class="ml-20-lg">
+            <button class="button secondary outline">Log In</button>
+    </li>
+    <li class="ml-10-lg">
+        <button class="button secondary outline">Register</button>
+</li>
+<li class="ml-10-lg">
+    <a href="{% url 'cart' %}">
+    <button class="flat-button secondary outline  mif-cart fg-green">
+        
+    </button>
+</a>
+</li>
+    </ul>
+   
+</div>

@@ -1,0 +1,58 @@
+{% extends 'user/main.html' %}
+
+{% block main_content %}
+{% load static %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <a href="{% url 'store' %}"><button class="flat-button mif-backward" data-role="popover"
+                    data-popover-text="Continue Shoping"  data-popover-position="right"> </button></a>
+            </div>
+            <br/>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <th>
+                            <h5>Items: <strong>{{order.get_cart_items}}</strong></h5>
+                        </th>
+                        <th>
+                            <h5>Total: <strong>${{order.get_cart_total}}</strong></h5>
+                        </th>
+                        <th>
+                            <a href ="{% url 'checkout' %}" class="button success outline" style="float:right;margin-right:30px;">checkout</a>
+                        </th>
+                    </thead>
+                </table> 
+            </div>
+        </div>
+        <br/>
+        <div class="card">
+           <div class="cart-row">
+            <div style="flex:2;font-size:1.5rem;"></div>
+            <div style="flex:2;font-size:1.5rem;margin-top:5px;text-transform: capitalize;font-weight:600;">Item</div>
+            <div style="flex:1;font-size:1.5rem;margin-top: 5px;text-transform: capitalize;font-weight:600;">price</div>
+            <div style="flex:1;font-size:1.5rem;margin-top: 5px;text-transform: capitalize;font-weight:600;">Quantity</div>
+            <div style="flex:1;font-size:1.5rem;margin-top: 5px;text-transform: capitalize;font-weight:700;">Total</div>
+           </div>
+           {%for item in items%}
+           <div class="cart-row" style="height:100px;">
+            <div style="flex:2;"><img src="{{item.product.imageURL}}" style="height:80px;width:80px;"></div>
+            <div style="flex:2;font-size:1.5rem;">{{item.product.name}}</div>
+            <div style="flex:1;font-size:1.5rem;">${{item.product.price|floatformat:2}}</div>
+            <div style="flex:1;"  style="position:relative;">
+                <span  style="align-self:center;justify-self:center;font-size:1.5rem;">{{item.quantity}}</span>
+                <div class="quantity" style="display:inline-flex;flex-direction:column;margin:0px;padding:0px;position:relative;top:-20px;">
+                    <button class="flat-button mif-chevron-thin-up" style="scale:0.8;margin:0px;padding:0px;"></button>
+                    <button class="flat-button mif-chevron-thin-down" style="scale:0.8;margin:0px;padding:0px;"></button>
+                </div>    
+            </div>
+            
+            <div style="flex:1;font-size:1.5rem;">${{item.get_total}}</div>
+
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

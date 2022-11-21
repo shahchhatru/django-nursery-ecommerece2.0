@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lovely Leaves</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4/css/metro-all.min.css">
+    <link rel="stylesheet" href="{% static 'user/css/base.css' %}"/>
+    <script>
+      var user= '{{request.user}}'
+    </script>
+  </head>
+  <body style="margin:0px;padding:0px;">
+    <div class="container" style="margin:0px;padding:0px;">
+	  {% block main %}
+    
+    {% endblock main %}
+    </div>
+    <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
+    <script type="text/javascript" src="{% static 'user/js/cart.js' %}" ></script>
+  </body>
+</html>

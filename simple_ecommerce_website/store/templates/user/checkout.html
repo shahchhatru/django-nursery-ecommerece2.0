@@ -1,0 +1,76 @@
+{% extends 'user/main.html' %}
+
+{% block main_content %}
+{% load static %}
+<div class="row">
+    <div class="cell-lg-6" >
+        <div class="card" id="form-wrapper">
+            <form id="form">
+                <div id="user-info" style="display:flex;flex-direction:row;align-items:center;justify-content:space-around;">
+                    <div class="form-group" style="flex:1;margin-right:5px;">
+                        <label>Name</label>
+                        <input type="text" placeholder="Enter Name"  class="metro-input"/>
+                        <small class="text-muted"> </small>
+                    </div>
+                    <div class="form-group" style="flex:1;">
+                        <label>Email address</label>
+                        <input type="email" placeholder="Enter email"  class="metro-input"/>
+                        <small class="text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                </div>
+            
+            <div id="shipping-info">
+                <hr/>
+						<p>Shipping Information:</p>
+						<hr/>
+                    <div class="grid-container">
+						<div class="form-group">
+							<input class="metro-input" type="text" name="address" placeholder="Address..">
+						</div>
+						<div class="form-group">
+							<input class="metro-input" type="text" name="city" placeholder="City..">
+						</div>
+						<div class="form-group">
+							<input class="metro-input" type="text" name="state" placeholder="State..">
+						</div>
+						<div class="form-group">
+							<input class="metro-input" type="text" name="zipcode" placeholder="Zip code..">
+						</div>
+						<div class="form-group">
+							<input class="metro-input" type="text" name="country" placeholder="Country..">
+						</div>
+                    </div>
+
+            </div>
+    
+            <hr/>
+            <input type="submit" class="flat-button success outline rounded large shadowed" value="continue" style="width:100%;" />
+        </form>
+
+        </div>
+        <div class="card hidden" id="payment-info">
+            <small>Paypal Options</small>
+        </div>
+    </div>
+    <div class="cell-lg-6">
+        <div class="card">
+            
+                <a  class="button outline dark rounded" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
+                <hr>
+                <h3 class="text-leader">Order Summary</h3>
+                <hr>
+                {% for item in items %}
+                <div class="cart-row">
+                    <div style="flex:2" class="img-container" ><img class="" src="{{item.product.imageURL}}" style="width:40px;height:30px;"></div>
+                    <div style="flex:2"><p>{{item.product.name}}</p></div>
+                    <div style="flex:1"><p>${{item.product.price}}</p></div>
+                    <div style="flex:1"><p>x{{item.quantity}}</p></div>
+                </div>
+                {% endfor %}
+                <h5 class="h5 alt-header">Items:   {{order.get_cart_items}}</h5>
+                <h5 class="h5 alt-header">Total:   ${{order.get_cart_total}}</h5>
+            
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

@@ -1,0 +1,11 @@
+{% extends 'user/base.html' %}
+{% load static %}
+
+{% block main %}
+{% include 'user/navbar.html' %}
+<div class="container" style="position:relative;left:50px;">
+    {% block main_content %}
+    
+    {% endblock main_content %}
+</div>
+{% endblock main %}

@@ -1,0 +1,39 @@
+{% extends 'user/main.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'user/css/base.css' %}"/>
+{% block main_content %}
+<div class="container">
+<div class="row">
+  
+   {% for product  in products %}
+<div class="cell-md-3">
+   <div class="card">
+    <div class="card-header">
+        <div class="avatar" >
+            <img src="{{product.imageURL}}"/>
+        </div>
+        <div class="name">{{product.name}}</div>
+        <div class="date">US$ {{product.price|floatformat:2}}</div>
+    </div>
+    <div class="card-content p-2">
+        <img src="{{product.imageURL}}" />
+    </div>
+    <div class="card-footer">
+        <button data-product ={{product.id}} data-action="add" class="button success outline update-cart">ADD to cart</button>
+        <button class="button alert outline rounded"> US$ {{product.price|floatformat:2}}</button>
+    </div>
+    <div class="card-footer">
+        <button class="flat-button mif-thumbs-up"></button>
+        <button class="flat-button mif-tag"></button>
+        <button class="flat-button mif-share"></button>
+    </div>
+</div>
+</div>
+
+
+    {% endfor %}
+</div>
+</div>
+{% endblock main_content %}
+
+
