@@ -43,8 +43,8 @@
             <div style="flex:1;"  style="position:relative;">
                 <span  style="align-self:center;justify-self:center;font-size:1.5rem;">{{item.quantity}}</span>
                 <div class="quantity" style="display:inline-flex;flex-direction:column;margin:0px;padding:0px;position:relative;top:-20px;">
-                    <button class="flat-button mif-chevron-thin-up" style="scale:0.8;margin:0px;padding:0px;"></button>
-                    <button class="flat-button mif-chevron-thin-down" style="scale:0.8;margin:0px;padding:0px;"></button>
+                    <button data-product="{{item.product.id}}" data-action="add" class="flat-button mif-chevron-thin-up update-cart" style="scale:0.8;margin:0px;padding:0px;"></button>
+                    <button data-product="{{item.product.id}}" data-action="remove" class="flat-button mif-chevron-thin-down update-cart" style="scale:0.8;margin:0px;padding:0px;"></button>
                 </div>    
             </div>
             

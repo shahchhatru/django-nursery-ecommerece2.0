@@ -36,9 +36,21 @@ class Order(models.Model):
     date_ordered=models.DateTimeField(auto_now_add=True)
     complete=models.BooleanField(default=False,null=True,blank=False)
     transaction_id=models.CharField(max_length=200,null=True)
+    digital=models.BooleanField(default=False ,null=True,blank=False)
 
+    
     def __str__(self):
         return str(self.id)
+
+    @property
+    def shipping(self):
+        shipping =False
+        orderedItem=self.orderitem_set.all()
+        for i in orderedItem:
+            if i.product.digital==False:
+                shipping = True
+        return shipping
+
 
     @property
     def get_cart_total(self):

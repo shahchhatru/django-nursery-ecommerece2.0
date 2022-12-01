@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'user/css/base.css' %}"/>
     <script>
       var user= '{{request.user}}';
-      function getCookie(name) {
+      function getToken(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
             const cookies = document.cookie.split(';');
@@ -25,7 +25,7 @@
         }
         return cookieValue;
     }
-    const csrftoken = getCookie('csrftoken');
+    const csrftoken = getToken('csrftoken');
     </script>
   </head>
   <body style="margin:0px;padding:0px;">
@@ -34,6 +34,9 @@
     
     {% endblock main %}
     </div>
+    {% block scpt %}
+
+    {% endblock scpt %}
     <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
     <script type="text/javascript" src="{% static 'user/js/cart.js' %}" ></script>
   </body>
