@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Simple Ecommerce for plant nursery
 
 ## Description
@@ -47,4 +48,26 @@ pipenv run python3 manage.py runserver
 ## Shipping and Checkout page
 
 ![Shipping and checkout page](./images/shipping.png)
+=======
+# django-nursery-ecommerece2.0
+to install it , make sure you have pipenv installed . 
+I have created a virtual environment using pipenv to manage my python django dependencies.
+
+To run it 
+
+The following command will manage all our dependencies
+``` pipenv install```
+
+step 2: Activate our environment
+```pipenv shell```
+
+step 3: cd  simple_ecomerce_website
+
+```pipenv run python manage.py runserver```
+
+
+
+
+
+>>>>>>> f900a274a66c843e3a0fa5c949330a5b050ae811
 
