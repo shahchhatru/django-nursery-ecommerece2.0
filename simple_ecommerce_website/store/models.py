@@ -31,6 +31,10 @@ class Product(models.Model):
             url=''
         return url
 
+    @property
+    def get_price(self):
+        return self.price
+
 class Order(models.Model):
     customer=models.ForeignKey(Customer,on_delete=models.SET_NULL,blank=True,null=True)
     date_ordered=models.DateTimeField(auto_now_add=True)
@@ -77,7 +81,7 @@ class OrderItem(models.Model):
 
     @property
     def get_total(self):
-        return self.product.price*self.quantity
+        return (self.product.get_price * self.quantity)
 
 class ShippingAddress(models.Model):
     customer=models.ForeignKey(Customer, on_delete=models.SET_NULL,blank=True,null=True)

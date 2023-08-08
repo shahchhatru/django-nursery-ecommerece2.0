@@ -12,6 +12,7 @@
             <br/>
             <div class="card-body">
                 <table class="table">
+                    
                     <thead>
                         <th>
                             <h5>Items: <strong>{{order.get_cart_items}}</strong></h5>
@@ -22,7 +23,9 @@
                         <th>
                             <a href ="{% url 'checkout' %}" class="button success outline" style="float:right;margin-right:30px;">checkout</a>
                         </th>
+                        
                     </thead>
+                
                 </table> 
             </div>
         </div>
