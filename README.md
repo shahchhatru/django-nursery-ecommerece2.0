@@ -1,4 +1,4 @@
-# social-media-clone
+# Simple Ecommerce for plant nursery
 
 ## Description
 This is a simple website for local plant nursery.
